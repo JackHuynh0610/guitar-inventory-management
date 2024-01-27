@@ -9,11 +9,9 @@ import java.util.List;
 import com.example.hw2.model.Guitar;
 
 public class InventoryRepository {
-    private List<Guitar> guitars;
+    private List<Guitar> guitars = new ArrayList<>();
     
-    
-    public void addGuitar(String serialNumber, double price, String builder, String model, String type, String backWood, String topWood){
-        Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
+    public void addGuitar(Guitar guitar){
         guitars.add(guitar);
         // handle write to file
         writeToFile(guitar);
@@ -45,32 +43,24 @@ public class InventoryRepository {
         return null;
     }
 
-    public List<Guitar> search(String serialNumber, double price, String builder, String model, String type, String backWood, String topWood){
-        ArrayList<Guitar> guitars = new ArrayList<>();
-        for(Guitar guitar : this.guitars){
-            if(serialNumber != null && !serialNumber.equals("") && !guitar.getSerialNumber().equals(serialNumber)){
-                continue;
+    public List<Guitar> search(Guitar searchGuitar) {
+        ArrayList<Guitar> matchingGuitars = new ArrayList<>();
+
+        for (Guitar guitar : this.guitars) {
+            if (matchesSearchCriteria(guitar, searchGuitar)) {
+                matchingGuitars.add(guitar);
             }
-            if(price != 0.0 && guitar.getPrice() != price){
-                continue;
-            }
-            if(builder != null && !builder.equals("") && !guitar.getBuilder().equals(builder)){
-                continue;
-            }
-            if(model != null && !model.equals("") && !guitar.getModel().equals(model)){
-                continue;
-            }
-            if(type != null && !type.equals("") && !guitar.getType().equals(type)){
-                continue;
-            }
-            if(backWood != null && !backWood.equals("") && !guitar.getBackWood().equals(backWood)){
-                continue;
-            }
-            if(topWood != null && !topWood.equals("") && !guitar.getTopWood().equals(topWood)){
-                continue;
-            }
-            guitars.add(guitar);
         }
-        return guitars;
+        return matchingGuitars;
+    }
+
+    private boolean matchesSearchCriteria(Guitar guitar, Guitar searchGuitar) {
+        return (searchGuitar.getSerialNumber() == null || searchGuitar.getSerialNumber().equals("") || guitar.getSerialNumber().equals(searchGuitar.getSerialNumber()))
+                && (searchGuitar.getPrice() == 0.0 || guitar.getPrice() == searchGuitar.getPrice())
+                && (searchGuitar.getBuilder() == null || searchGuitar.getBuilder().equals("") || guitar.getBuilder().equals(searchGuitar.getBuilder()))
+                && (searchGuitar.getModel() == null || searchGuitar.getModel().equals("") || guitar.getModel().equals(searchGuitar.getModel()))
+                && (searchGuitar.getType() == null || searchGuitar.getType().equals("") || guitar.getType().equals(searchGuitar.getType()))
+                && (searchGuitar.getBackWood() == null || searchGuitar.getBackWood().equals("") || guitar.getBackWood().equals(searchGuitar.getBackWood()))
+                && (searchGuitar.getTopWood() == null || searchGuitar.getTopWood().equals("") || guitar.getTopWood().equals(searchGuitar.getTopWood()));
     }
 }
