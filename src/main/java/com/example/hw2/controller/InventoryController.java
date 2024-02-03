@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.hw2.model.Guitar;
+import com.example.hw2.model.Guitar.Builder;
+import com.example.hw2.model.Guitar.Wood;
+import com.example.hw2.model.Guitar.Type;
 
 @RestController
 public class InventoryController {
@@ -18,7 +21,7 @@ public class InventoryController {
     }
 
     @PostMapping("/addGuitar")
-    public void addGuitar(String serialNumber, double price, String builder, String model, String type, String backWood, String topWood){
+    public void addGuitar(String serialNumber, double price, Builder builder, String model, Type type, Wood backWood, Wood topWood){
         Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
         guitars.add(guitar);
     }
@@ -38,7 +41,7 @@ public class InventoryController {
     }
 
     @GetMapping("/search")
-    public List<Guitar> search(String serialNumber, double price, String builder, String model, String type, String backWood, String topWood){
+    public List<Guitar> search(String serialNumber, double price, Builder builder, String model, Type type, Wood backWood,Wood topWood){
         ArrayList<Guitar> guitars = new ArrayList<>();
         for(Guitar guitar : this.guitars){
             if(serialNumber != null && !serialNumber.equals("") && !guitar.getSerialNumber().equals(serialNumber)){
@@ -47,19 +50,19 @@ public class InventoryController {
             if(price != 0.0 && guitar.getPrice() != price){
                 continue;
             }
-            if(builder != null && !builder.equals("") && !guitar.getBuilder().equals(builder)){
+            if(builder != null && !builder.equals(null) && !guitar.getBuilder().equals(builder)){
                 continue;
             }
-            if(model != null && !model.equals("") && !guitar.getModel().equals(model)){
+            if(model != null && !model.equals(null) && !guitar.getModel().equals(model)){
                 continue;
             }
-            if(type != null && !type.equals("") && !guitar.getType().equals(type)){
+            if(type != null && !type.equals(null) && !guitar.getType().equals(type)){
                 continue;
             }
-            if(backWood != null && !backWood.equals("") && !guitar.getBackWood().equals(backWood)){
+            if(backWood != null && !backWood.equals(null) && !guitar.getBackWood().equals(backWood)){
                 continue;
             }
-            if(topWood != null && !topWood.equals("") && !guitar.getTopWood().equals(topWood)){
+            if(topWood != null && !topWood.equals(null) && !guitar.getTopWood().equals(topWood)){
                 continue;
             }
             guitars.add(guitar);
