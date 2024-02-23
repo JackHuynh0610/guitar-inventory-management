@@ -2,9 +2,13 @@ package com.example.hw2.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.hw2.model.Guitar;
@@ -13,6 +17,8 @@ import com.example.hw2.model.Guitar.Wood;
 import com.example.hw2.model.Guitar.Type;
 
 @RestController
+@CrossOrigin
+@RequestMapping("/inventory")
 public class InventoryController {
     private List<Guitar> guitars;
 
@@ -21,9 +27,13 @@ public class InventoryController {
     }
 
     @PostMapping("/addGuitar")
-    public void addGuitar(String serialNumber, double price, Builder builder, String model, Type type, Wood backWood, Wood topWood){
-        Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
+    public void addGuitar(String serialNumber, Optional<Double> price, Builder builder, String model, Type type, Wood backWood, Wood topWood) {
+        // Check if the price is present, and use a default value if not
+        double actualPrice = price.orElse(0.0);
+    
+        Guitar guitar = new Guitar(serialNumber, actualPrice, builder, model, type, backWood, topWood);
         guitars.add(guitar);
+
     }
 
     @GetMapping("/findGuitar/{serialNumber}")
