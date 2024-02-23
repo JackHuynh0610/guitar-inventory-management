@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
 
 import org.springframework.stereotype.Repository;
 import com.example.hw2.model.Guitar;
@@ -20,6 +21,14 @@ public class InventoryRepository {
     }
 
     private void writeToFile(Guitar guitar) {
+        //if file does not exist, create it
+        if(!new File("guitars_database.txt").exists()){
+            try {
+                new File("guitars_database.txt").createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("guitars_database.txt", true))) {
             // Append the guitar information to the file
             writer.write(guitar.getSerialNumber() + "," +
