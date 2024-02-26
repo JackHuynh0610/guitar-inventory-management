@@ -46,7 +46,7 @@ public class InventoryRepository {
     }
 
     public Guitar getGuitars(String serialNumber) {
-        for(Guitar guitar : guitars){
+        for(Guitar guitar : this.guitars){
             if(guitar.getSerialNumber().equals(serialNumber)){
                 return guitar;
             }
@@ -65,13 +65,19 @@ public class InventoryRepository {
         return matchingGuitars;
     }
 
+    @SuppressWarnings("unlikely-arg-type")
     private boolean matchesSearchCriteria(Guitar guitar, Guitar searchGuitar) {
-        return (searchGuitar.getSerialNumber() == null || searchGuitar.getSerialNumber().equals("") || guitar.getSerialNumber().equals(searchGuitar.getSerialNumber()))
-                && (searchGuitar.getPrice() == 0.0 || guitar.getPrice() == searchGuitar.getPrice())
-                && (searchGuitar.getBuilder() == null || searchGuitar.getBuilder().equals("") || guitar.getBuilder().equals(searchGuitar.getBuilder()))
-                && (searchGuitar.getModel() == null || searchGuitar.getModel().equals("") || guitar.getModel().equals(searchGuitar.getModel()))
-                && (searchGuitar.getType() == null || searchGuitar.getType().equals("") || guitar.getType().equals(searchGuitar.getType()))
-                && (searchGuitar.getBackWood() == null || searchGuitar.getBackWood().equals("") || guitar.getBackWood().equals(searchGuitar.getBackWood()))
-                && (searchGuitar.getTopWood() == null || searchGuitar.getTopWood().equals("") || guitar.getTopWood().equals(searchGuitar.getTopWood()));
+        if (searchGuitar.getBuilder() != null && !searchGuitar.getBuilder().equals("") && !searchGuitar.getBuilder().equals(guitar.getBuilder()))
+            return false;
+        if (searchGuitar.getModel() != null && !searchGuitar.getModel().equals("") && !searchGuitar.getModel().equals(guitar.getModel()))
+            return false;
+        if (searchGuitar.getType() != null && !searchGuitar.getType().equals("") && !searchGuitar.getType().equals(guitar.getType()))
+            return false;
+        if (searchGuitar.getBackWood() != null && !searchGuitar.getBackWood().equals("") && !searchGuitar.getBackWood().equals(guitar.getBackWood()))
+            return false;
+        if (searchGuitar.getTopWood() != null && !searchGuitar.getTopWood().equals("") && !searchGuitar.getTopWood().equals(guitar.getTopWood()))
+            return false;
+        return true;
+        
     }
 }
