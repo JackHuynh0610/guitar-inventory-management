@@ -29,9 +29,9 @@ public class InventoryController {
     }
 
     @PostMapping("/addGuitar")
-    public ResponseEntity<Guitar> addGuitar(@RequestBody Guitar guitar) {
+    public boolean addGuitar(@RequestBody Guitar guitar) {
         guitars.addGuitar(guitar);
-        return ResponseEntity.ok(guitar);
+        return true;
     }
 
     @GetMapping("/findGuitar/{serialNumber}")
@@ -39,7 +39,7 @@ public class InventoryController {
         return guitars.getGuitars(serialNumber);
     }
 
-    @GetMapping("/search")
+    @GetMapping("/search/{serialNumber}/{price}/{builder}/{model}/{type}/{backWood}/{topWood}")
     public List<Guitar> search(@RequestParam(required = true) String serialNumber,@RequestParam(required = true) double price,@RequestParam(required = true) Builder builder,@RequestParam(required = true) String model,@RequestParam(required = true) Type type,@RequestParam(required = true) Wood backWood,@RequestParam(required = true) Wood topWood){
         Guitar searchGuitar = new Guitar("0", 0, builder, model, type, backWood, topWood);
         return guitars.search(searchGuitar);
