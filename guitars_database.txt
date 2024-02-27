@@ -7,4 +7,4 @@
 12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
 54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple12,12.5,
 Fender,Stratocaster,Electric,Mahogany,Mahogany
-
+12,12.5,Fender,Stratocaster,Electric,Mahogany,Mahogany
