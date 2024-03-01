@@ -81,13 +81,10 @@ public class InventoryRepositoryTest {
         inventory.addGuitar(guitar1);
         inventory.addGuitar(guitar4);
 
-        // Criteria for search
-        Guitar searchCriteria = new Guitar(null, 0.0, Guitar.Builder.FENDER, "Stratocaster", Guitar.Type.ELECTRIC, null, null);
-
         // Act
-        List<Guitar> foundGuitars = inventory.search(searchCriteria);
+        List<Guitar> foundGuitars = inventory.search(guitar1);
         // Assert
         assertEquals(1, foundGuitars.size());
-        assertEquals(guitar1, foundGuitars.get(0));
+        assertEquals("12345", foundGuitars.get(0).getSerialNumber());
     }
 }

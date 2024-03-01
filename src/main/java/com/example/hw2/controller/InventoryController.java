@@ -39,9 +39,15 @@ public class InventoryController {
         return guitars.getGuitars(serialNumber);
     }
 
-    @GetMapping("/search/{serialNumber}/{price}/{builder}/{model}/{type}/{backWood}/{topWood}")
-    public List<Guitar> search(@RequestParam(required = true) String serialNumber,@RequestParam(required = true) double price,@RequestParam(required = true) Builder builder,@RequestParam(required = true) String model,@RequestParam(required = true) Type type,@RequestParam(required = true) Wood backWood,@RequestParam(required = true) Wood topWood){
-        Guitar searchGuitar = new Guitar("0", 0, builder, model, type, backWood, topWood);
+    @GetMapping("/search")
+    public List<Guitar> search(@RequestParam(required = true) String serialNumber,
+                               @RequestParam(required = true) double price,
+                               @RequestParam(required = true) Builder builder,
+                               @RequestParam(required = true) String model,
+                               @RequestParam(required = true) Type type,
+                               @RequestParam(required = true) Wood backWood,
+                               @RequestParam(required = true) Wood topWood){
+        Guitar searchGuitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
         return guitars.search(searchGuitar);
     }
 

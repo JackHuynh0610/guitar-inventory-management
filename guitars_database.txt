@@ -17,8 +17,6 @@ null,0.0,null,null,null,null,null
 1,1.0,Gibson,Hummingbird,Acoustic,Mahogany,Mahogany
 1,1.0,Gibson,Hummingbird,Acoustic,Mahogany,Mahogany
 12,12.5,Fender,Stratocaster,Electric,Mahogany,Mahogany
-1,1.0,Gibson,Hummingbird,Acoustic,Mahogany,Mahogany
-1,1.0,Gibson,Hummingbird,Acoustic,Mahogany,Mahogany
 56,1.0,Gibson,Hummingbird,Acoustic,Mahogany,Mahogany
 12345,1500.0,Fender,Stratocaster,Electric,Maple,Alder
 12346,1500.0,Fender,Stratocaster,Electric,Maple,Alder
@@ -28,3 +26,29 @@ null,0.0,null,null,null,null,null
 54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
 12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
 54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+1,12.0,Fender,MAHOGANY,Electric,Mahogany,Mahogany
+12345,1500.0,Fender,Stratocaster,Electric,Maple,Alder
+12346,1500.0,Fender,Stratocaster,Electric,Maple,Alder
+12345,999.99,Fender,Stratocaster,Electric,Mahogany,Maple
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+12345,999.99,Fender,Stratocaster,Electric,Brazilian Rosewood,Cedar
+54321,799.95,Gibson,Les Paul,Electric,Mahogany,Maple
+1,12.0,Fender,MAHOGANY,Electric,Mahogany,Mahogany

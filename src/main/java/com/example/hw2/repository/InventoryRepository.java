@@ -56,28 +56,10 @@ public class InventoryRepository {
 
     public List<Guitar> search(Guitar searchGuitar) {
         ArrayList<Guitar> matchingGuitars = new ArrayList<>();
-
         for (Guitar guitar : this.guitars) {
-            if (matchesSearchCriteria(guitar, searchGuitar)) {
-                matchingGuitars.add(guitar);
-            }
+           if(guitar.equals(searchGuitar))
+               matchingGuitars.add(guitar);
         }
         return matchingGuitars;
-    }
-
-    @SuppressWarnings("unlikely-arg-type")
-    private boolean matchesSearchCriteria(Guitar guitar, Guitar searchGuitar) {
-        if (searchGuitar.getBuilder() != null && !searchGuitar.getBuilder().equals("") && !searchGuitar.getBuilder().equals(guitar.getBuilder()))
-            return false;
-        if (searchGuitar.getModel() != null && !searchGuitar.getModel().equals("") && !searchGuitar.getModel().equals(guitar.getModel()))
-            return false;
-        if (searchGuitar.getType() != null && !searchGuitar.getType().equals("") && !searchGuitar.getType().equals(guitar.getType()))
-            return false;
-        if (searchGuitar.getBackWood() != null && !searchGuitar.getBackWood().equals("") && !searchGuitar.getBackWood().equals(guitar.getBackWood()))
-            return false;
-        if (searchGuitar.getTopWood() != null && !searchGuitar.getTopWood().equals("") && !searchGuitar.getTopWood().equals(guitar.getTopWood()))
-            return false;
-        return true;
-        
     }
 }
